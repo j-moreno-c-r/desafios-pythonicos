@@ -1,0 +1,34 @@
+
+def fix_start(s):
+    # +++ SUA SOLUÇÃO +++
+  iniciais = s[0]
+  resultado = iniciais + s[1:].replace( iniciais, '*' )
+  return resultado
+
+
+# --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
+
+def test(f, in_, expected):
+    """
+    Executa a função f com o parâmetro in_ e compara o resultado com expected.
+    :return: Exibe uma mensagem indicando se a função f está correta ou não.
+    """
+    out = f(in_)
+
+    if out == expected:
+        sign = '✅'
+        info = ''
+    else:
+        sign = '❌'
+        info = f'e o correto é {expected!r}'
+
+    print(f'{sign} {f.__name__}({in_!r}) retornou {out!r} {info}')
+
+
+if __name__ == '__main__':
+    # Testes que verificam o resultado do seu código em alguns cenários.
+    test(fix_start, 'babble', 'ba**le')
+    test(fix_start, 'aardvark', 'a*rdv*rk')
+    test(fix_start, 'google', 'goo*le')
+    test(fix_start, 'donut', 'donut')
+    
